@@ -80,7 +80,7 @@ macOS < 12.
   you need to use the keys `iOSApplicationExtension_deployment_target`,
   `macOSApplicationExtension_deployment_target`,
   `watchOSApplicationExtension_deployment_target`, and
-  `tvOSApplicationExtension_deployment_target`. Extentions default to
+  `tvOSApplicationExtension_deployment_target`. Extensions default to
   their counterparts unless they are explicitly defined.  
   [tahabebek](https://github.com/tahabebek)
   [#4004](https://github.com/realm/SwiftLint/issues/4004)
@@ -2037,7 +2037,7 @@ This is the last release to support building with Swift 4.2.x.
   [Frederick Pietschmann](https://github.com/fredpi)
   [#2670](https://github.com/realm/SwiftLint/issues/2670)
 
-* Fix issues in `explict_acl`, `redundant_set_access_control` and
+* Fix issues in `explicit_acl`, `redundant_set_access_control` and
   `explicit_top_level_acl` rules when using Swift 5.  
   [Marcelo Fabri](https://github.com/marcelofabri)
   [#2694](https://github.com/realm/SwiftLint/issues/2694)
