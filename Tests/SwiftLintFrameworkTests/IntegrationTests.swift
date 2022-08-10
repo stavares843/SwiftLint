@@ -16,7 +16,10 @@ class IntegrationTests: XCTestCase {
     func testSwiftLintLints() {
         // This is as close as we're ever going to get to a self-hosting linter.
         let swiftFiles = config.lintableFiles(inPath: "", forceExclude: false)
-        XCTAssert(swiftFiles.contains(where: { #file == $0.path }), "current file should be included")
+        XCTAssert(
+            swiftFiles.contains(where: { #file.bridge().absolutePathRepresentation() == $0.path }),
+            "current file should be included"
+        )
 
         let storage = RuleStorage()
         let violations = swiftFiles.parallelFlatMap {
@@ -139,7 +142,6 @@ private extension String {
 private func execute(_ args: [String],
                      in directory: URL? = nil,
                      input: Data? = nil) -> (status: Int32, stdout: String, stderr: String) {
-    // swiftlint:disable:previous large_tuple
     let process = Process()
     process.launchPath = "/usr/bin/env"
     process.arguments = args

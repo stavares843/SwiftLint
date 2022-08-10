@@ -31,7 +31,7 @@ public struct TodoRule: ConfigurationProviderRule {
             Example("/* ↓TODO: */\n"),
             Example("/** ↓FIXME: */\n"),
             Example("/** ↓TODO: */\n")
-        ]
+        ].skipWrappingInCommentTests()
     )
 
     private func customMessage(file: SwiftLintFile, range: NSRange) -> String {

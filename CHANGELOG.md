@@ -1,12 +1,5 @@
 ## Master
 
-#### Bug Fixes
-
-* Fix false positive in `Duplicated Key in Dictionary Literal Violation` rule when using
-  keys that are generated at runtime with the same source code.  
-  [OrEliyahu](https://github.com/OrEliyahu)
-  [#4012](https://github.com/realm/SwiftLint/issues/4012)
-
 #### Breaking
 
 * SwiftLint now requires Swift 5.6 or higher to build, and macOS 12
@@ -20,6 +13,15 @@
 * Make `comma_inheritance` an opt-in rule.  
   [Steve Madsen](https://github.com/sjmadsen)
   [#4027](https://github.com/realm/SwiftLint/issues/4027)
+
+* The `autocorrect` command that was deprecated in 0.43.0 has now been
+  completely removed. Use `--fix` instead.  
+  [JP Simard](https://github.com/jpsim)
+
+* Verify examples in rule descriptions by default and enforce explicit exclusion.
+  In fact, the `AutomaticTestableRule` protocol has been removed. All rules not
+  conforming to the new `ManuallyTestedExamplesRule` will be tested automatically.  
+  [SimplyDanny](https://github.com/SimplyDanny)
 
 #### Experimental
 
@@ -36,12 +38,24 @@
   [Keith Smiley](https://github.com/keith)
   [#3516](https://github.com/realm/SwiftLint/issues/3516)
 
+* Make `comma` rule about 10x faster, finding some previously missed cases and
+  fixing some previously wrong corrections.  
+  [JP Simard](https://github.com/jpsim)
+
+* Make `colon` rule about 7x faster, finding some previously missed cases.  
+  [JP Simard](https://github.com/jpsim)
+
 #### Bug Fixes
 
 * Fix false positive in `self_in_property_initialization` rule when using
   closures inside `didSet` and other accessors.  
   [Marcelo Fabri](https://github.com/marcelofabri)
   [#4041](https://github.com/realm/SwiftLint/issues/4041)
+
+* Fix false positive in `Duplicated Key in Dictionary Literal Violation` rule
+  when using keys that are generated at runtime with the same source code.  
+  [OrEliyahu](https://github.com/OrEliyahu)
+  [#4012](https://github.com/realm/SwiftLint/issues/4012)
 
 ## 0.48.0: Rechargeable Defuzzer
 

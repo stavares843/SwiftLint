@@ -30,6 +30,19 @@ swift_binary(
     deps = [
         ":SwiftLintFramework",
         "@sourcekitten_com_github_apple_swift_argument_parser//:ArgumentParser",
+        "@com_github_johnsundell_collectionconcurrencykit//:CollectionConcurrencyKit",
         "@swiftlint_com_github_scottrhoyt_swifty_text_table//:SwiftyTextTable",
     ],
+)
+
+filegroup(
+    name = "SwiftLintConfig",
+    srcs = [".swiftlint.yml"],
+    visibility = ["//Tests:__subpackages__"],
+)
+
+filegroup(
+    name = "SourceFilesToLint",
+    srcs = glob(["Source/**"]),
+    visibility = ["//Tests:__subpackages__"],
 )

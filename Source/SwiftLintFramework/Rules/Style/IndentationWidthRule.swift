@@ -31,15 +31,15 @@ public struct IndentationWidthRule: ConfigurationProviderRule, OptInRule {
             Example("firstLine\nsecondLine"),
             Example("firstLine\n    secondLine"),
             Example("firstLine\n\tsecondLine\n\t\tthirdLine\n\n\t\tfourthLine"),
-            Example("firstLine\n\tsecondLine\n\t\tthirdLine\n//test\n\t\tfourthLine"),
+            Example("firstLine\n\tsecondLine\n\t\tthirdLine\n\t//test\n\t\tfourthLine"),
             Example("firstLine\n    secondLine\n        thirdLine\nfourthLine")
         ],
         triggeringExamples: [
-            Example("    firstLine"),
+            Example("↓    firstLine", testMultiByteOffsets: false, testDisableCommand: false),
             Example("firstLine\n        secondLine"),
-            Example("firstLine\n\tsecondLine\n\n\t\t\tfourthLine"),
-            Example("firstLine\n    secondLine\n        thirdLine\n fourthLine")
-        ]
+            Example("firstLine\n\tsecondLine\n\n↓\t\t\tfourthLine"),
+            Example("firstLine\n    secondLine\n        thirdLine\n↓ fourthLine")
+        ].skipWrappingInCommentTests()
     )
 
     // MARK: - Initializers
